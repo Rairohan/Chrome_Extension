@@ -2,14 +2,18 @@ let myLeads= []
 const inputEl = document.getElementById("input-el")//const used as it is has final vlaue which doesn't changes here the case is the reference not the value
 const ulEl = document.getElementById("ul")
 let InputBtn = document.getElementById("input-btn")
-console.log(myLeads)
 
+let leadfromlocalstorage = JSON.parse(localStorage.getItem("myLeads"))
+console.log(leadfromlocalstorage)
 InputBtn.addEventListener("click",function(){
     const newLead= inputEl.value
     myLeads.push(newLead)
     console.log(myLeads)
-    renderLeads()
+    
      inputEl.value=""//we are changing the value inside input-el id tag not the reference
+     renderLeads()
+     localStorage.setItem("myLeads",JSON.stringify(myLeads))//myLeads is the key and in value is JSON.stringify converts array into string
+     console.log(localStorage.getItem(myLeads))
 })
 function renderLeads(){
 let Listitem = ""
@@ -23,4 +27,5 @@ for(let i=0;i<myLeads.length;i++){
        //  where we use ` to elimate the confusion of "" and '' and it also appears more like html
 }
 ulEl.innerHTML = Listitem
+
 } 
