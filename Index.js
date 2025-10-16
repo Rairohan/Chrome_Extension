@@ -1,10 +1,20 @@
 let myLeads= []
 const inputEl = document.getElementById("input-el")//const used as it is has final vlaue which doesn't changes here the case is the reference not the value
 const ulEl = document.getElementById("ul")
-let InputBtn = document.getElementById("input-btn")
-
-let leadfromlocalstorage = JSON.parse(localStorage.getItem("myLeads"))
+const InputBtn = document.getElementById("input-btn")
+const DeleteBtn = document.getElementById("delete-btn")
+const leadfromlocalstorage = JSON.parse(localStorage.getItem("myLeads"))//turns strings back to array
 console.log(leadfromlocalstorage)
+
+if (leadfromlocalstorage){//if condition where if the leadfromstorage becomes truthy it runs else it skips so works only when values is inserted
+     myLeads = leadfromlocalstorage
+     renderLeads()
+}
+DeleteBtn.addEventListener("dblclick",function(){//clears localstorage,myLeads array and DOM
+     localStorage.clear()
+     myLeads=[]
+     renderLeads()
+})
 InputBtn.addEventListener("click",function(){
     const newLead= inputEl.value
     myLeads.push(newLead)

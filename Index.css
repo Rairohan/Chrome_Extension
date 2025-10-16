@@ -14,6 +14,21 @@ body{
     border: none; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;   
 }
+#delete-btn{
+    color: white;
+    background-color: rgb(233, 32, 45);
+    padding: 5px 20px 5px 20px ;
+    margin-top: 5px;
+    margin-left: 5px;
+    border-radius: 15px;
+    font-size:1rem;
+    border: none; 
+    transition: transform 0.2s ease, box-shadow 0.2s ease;  
+}
+#delete-btn:hover{
+    background-color: rgb(154, 6, 6);
+    transform: scale(1.1);
+}
 #input-btn:hover{
     background-color:  rgb(10, 49, 149);
     transform: scale(1.1);
