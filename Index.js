@@ -8,12 +8,12 @@ console.log(leadfromlocalstorage)
 
 if (leadfromlocalstorage){//if condition where if the leadfromstorage becomes truthy it runs else it skips so works only when values is inserted
      myLeads = leadfromlocalstorage
-     renderLeads()
+     render(myLeads)
 }
 DeleteBtn.addEventListener("dblclick",function(){//clears localstorage,myLeads array and DOM
      localStorage.clear()
      myLeads=[]
-     renderLeads()
+     render(myLeads)
 })
 InputBtn.addEventListener("click",function(){
     const newLead= inputEl.value
@@ -21,17 +21,17 @@ InputBtn.addEventListener("click",function(){
     console.log(myLeads)
     
      inputEl.value=""//we are changing the value inside input-el id tag not the reference
-     renderLeads()
+     render(myLeads)
      localStorage.setItem("myLeads",JSON.stringify(myLeads))//myLeads is the key and in value is JSON.stringify converts array into string
      console.log(localStorage.getItem(myLeads))
 })
-function renderLeads(){
+function render(leads){
 let Listitem = ""
-for(let i=0;i<myLeads.length;i++){
+for(let i=0;i<leads.length;i++){
    
  Listitem += // "<li> <a href='"+ myLeads[i]+"' target = 'blank'>"+myLeads[i]+"</a></li>"
       `<li>
-        <a href='${ myLeads[i]}' target = 'blank'>${myLeads[i]}</a>
+        <a href='${ leads[i]}' target = 'blank'>${leads[i]}</a>
         </li>`
        //this method is an alternative (a template string) to the above commented line 18 method
        //  where we use ` to elimate the confusion of "" and '' and it also appears more like html
